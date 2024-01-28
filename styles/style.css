@@ -14,7 +14,504 @@
 
 */
 
+/* html::-webkit-scrollbar {
+  width: 0;
+} */
+
 .page {
+  padding: 102px 0;
+  color: var(--accent-color);
+  font-family: var(--main-font), sans-serif;
+  font-weight: var(--normal-font-weight);
+  font-size: 18px;
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+}
+
+.content {
+  margin: 0 auto;
+  max-inline-size: 696px;
+  inline-size: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px;
+  margin-block-end: 104px;
+  border: 2px solid var(--accent-color);
+  padding: 0 0 25px 0;
+  font-family: 'Press Start 2P', serif;
+  background-color: var(--background-color);
+  block-size: clamp(20.1875rem, 19.2852rem + 3.8498vw, 22.75rem);
+}
+
+.header__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.header__title-decor {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.theme-menu__list {
+  position: relative;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.theme-menu__item {
+  display: flex;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  padding: 0;
+  outline: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button[disabled]::before {
+  content: '▶';
+  position: absolute;
+  left: -20px;
+  animation: selected 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes selected {
+  to {
+    left: -16px;
+  }
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  background-color: var(--accent-color);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 2px;
+}
+
+.theme-menu__button:focus-visible::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.main {
+  margin-block-end: 54px;
+}
+
+.main__card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.main__card-item {
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+}
+
+.main__card-title {
+  padding: 5px 10px;
+  font-weight: var(--bold-font-weight);
+}
+
+.main__card-overlay {
+  position: relative;
+}
+
+.main__card-watermark {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  opacity: 0.5;
+  font-family: 'Press Start 2P', serif;
+  font-size: 14px;
+  text-transform: lowercase;
+  -webkit-text-stroke: 1px var(--background-color);
+  mix-blend-mode: hard-light;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.main__card-overlay {
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.main__card-image {
+  inline-size: 100%;
+}
+
+.blur-filter {
+  filter: blur(5px);
+}
+
+.brightness-filter {
+  filter: brightness(50%);
+}
+
+.invert-filter {
+  filter: invert(100%);
+}
+
+.contrast-filter {
+  filter: contrast(50%);
+}
+
+.grayscale-filter {
+  filter: grayscale(50%);
+}
+
+.hue-rotate-filter {
+  filter: hue-rotate(0.5turn);
+}
+
+.saturate-sepia-filter {
+  filter: saturate(300%) sepia(0.7);
+}
+
+.main__card-description {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+}
+
+.main__card-description__text {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  line-height: 21px;
+}
+
+.main__card-description__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+}
+
+.main__card-description__icon-button {
+  border: none;
+  outline: 2px solid transparent;
+  background-color: transparent;
+  transition: outline 0.3s ease;
+}
+
+.main__card-description__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.is-liked .heart {
+  transform-origin: center;
+  animation: heartbeat 0.3s 2 ease-in alternate 0.1s;
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.25);
+  }
+}
+
+.contour {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  transition: fill 0.1s linear, stroke 0.1s linear;
+}
+
+.is-liked .contour {
+  fill: #ff0000;
+  stroke: #ff0000;
+  transition: fill 0.3s linear 0.12s, stroke 0.3s linear 0.12s;
+}
+
+.main-body {
+  fill: transparent;
+  stroke: transparent;
+  transition: fill 0.3s linear, stroke 0.3s linear;
+}
+
+.main__card-description__icon-button:hover .main-body {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  transition: fill 0.3s linear 0.05s, stroke 0.3s linear 0.05s;
+}
+
+.main__card-description__icon-button:active .main-body {
+  fill: #ff0000;
+  stroke: #ff0000;
+  transition: fill 0.3s linear 0.05s, stroke 0.3s linear 0.05s;
+}
+
+.is-liked .main-body {
+  fill: #ff0000;
+  stroke: #ff0000;
+  transition: fill 0.3s linear 0.06s, stroke 0.3s linear 0.06s;
+}
+
+.main__card-description__icon-button:hover .is-liked .main-body {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+.core {
+  fill: transparent;
+  stroke: transparent;
+  transition: fill 0.3s linear 0.03s, stroke 0.3s linear 0.03s;
+}
+
+.main__card-description__icon-button:hover .core {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  transition: fill 0.3s linear, stroke 0.3s linear;
+}
+
+.main__card-description__icon-button:active .core{
+  fill: #ff0000;
+  stroke: #ff0000;
+  transition: fill 0.3s linear, stroke 0.3s linear;
+}
+
+.is-liked .core {
+  fill: #ff0000;
+  stroke: #ff0000;
+  transition: fill 0.3s linear, stroke 0.3s linear;
+}
+
+.main__card-description__icon-button:hover .is-liked .core {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.is-liked .sparks {
+  transform-origin: center;
+  animation: sparks 0.3s 2 ease-in alternate 0.3s;
+}
+
+@keyframes sparks {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.main__card-description__like-button {
+  border: 2px solid var(--accent-color);
+  font-family: 'Press Start 2P', serif;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: transparent;
+  inline-size: 130px;
+  block-size: 38px;
+}
+
+.animated-button {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.animated-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.animated-button:hover::after {
+  transform: scaleX(1);
+}
+
+.animated-button__text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s linear;
+  mix-blend-mode: var(--blend-mode);
+}
+
+.theme-light .animated-button:hover .animated-button__text {
+  color: var(--background-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .animated-button:hover .animated-button__text {
+    color: var(--background-color);
+  }
+}
+
+.animated-button:focus-visible {
+  box-shadow: 2px 2px var(--accent-color);
+  outline: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--accent-color);
+  padding: 15px 20px;
+  font-family: 'Press Start 2P', serif;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: var(--background-color);
+}
+
+.footer__button-decor {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s linear;
+  inline-size: 21px;
+  block-size: 21px;
+  mix-blend-mode: var(--blend-mode);
+}
+
+.theme-light .animated-button:hover .footer__button-decor {
+  color: var(--background-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .animated-button:hover .footer__button-decor {
+    color: var(--background-color);
+  }
+}
+
+.footer__window {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  color: var(--accent-color);
+  font-family: 'Press Start 2P', serif;
+  line-height: 150%;
+  text-transform: uppercase;
+  background-color: var(--background-color);
+  inline-size: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
+}
+
+.footer__window:focus-visible {
+  outline: none;
+}
+
+.footer__window:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.footer__window::backdrop {
+  background-color: rgba(0 0 0 / .75);
+}
+
+.footer__window__message {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__window__message .footer__button-decor {
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.footer__window__message-text {
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.footer__window__button {
+  border: 2px solid var(--accent-color);
+  padding: 9px 17px;
+  line-height: 90%;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+@media only screen and (width < 376px) {
+  
+  .content {
+    inline-size: 100%;
+  }
+
+  .footer__button {
+    flex-direction: column;
+  }
+
+  .footer__button-decor {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+  .footer__window {
+    inline-size: 100%;
+  }
+
 }

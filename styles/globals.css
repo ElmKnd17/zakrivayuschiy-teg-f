@@ -24,6 +24,9 @@ ol,
 li {
   margin: 0;
   padding: 0;
+  /* мои стили */
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 a {
@@ -35,6 +38,12 @@ input {
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
+}
+
+/* мои стили */
+button {
+  cursor: url(../images/cursor.png) 6 0, pointer;
+  padding: 0;
 }
 
 ul,
@@ -50,4 +59,17 @@ ol {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* мои стили */
+svg {
+  display: block;
+}
+
+/* мои стили */
+img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  block-size: 100%;
 }
