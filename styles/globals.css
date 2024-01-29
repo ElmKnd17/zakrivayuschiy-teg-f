@@ -24,9 +24,6 @@ ol,
 li {
   margin: 0;
   padding: 0;
-  /* мои стили */
-  font-size: inherit;
-  font-weight: inherit;
 }
 
 a {
@@ -42,8 +39,8 @@ input {
 
 /* мои стили */
 button {
-  cursor: url(../images/cursor.png) 6 0, pointer;
   padding: 0;
+  cursor: url(../images/cursor.png) 6 0, pointer;
 }
 
 ul,
@@ -53,10 +50,10 @@ ol {
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
@@ -71,5 +68,4 @@ img {
   display: block;
   object-fit: cover;
   object-position: center;
-  block-size: 100%;
 }

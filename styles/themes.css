@@ -96,3 +96,23 @@
         --blend-mode: difference;
     }
 }
+
+.theme-light .animated-button:hover .animated-button__text {
+  color: var(--background-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .animated-button:hover .animated-button__text {
+    color: var(--background-color);
+  }
+}
+
+.theme-light .animated-button:hover .save-section__button-decor {
+  color: var(--background-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .animated-button:hover .save-section__button-decor {
+    color: var(--background-color);
+  }
+}
