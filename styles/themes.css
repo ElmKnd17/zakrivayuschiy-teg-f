@@ -32,7 +32,6 @@
       #e7e7e7,
       #1a1a1a
     );
-    --blend-mode: normal;
 }
 
 :root.theme-dark {
@@ -62,7 +61,6 @@
       #007f0c,
       #004306
     );
-    --blend-mode: difference;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,26 +91,17 @@
           #007f0c,
           #004306
         );
-        --blend-mode: difference;
     }
 }
 
-.theme-light .animated-button:hover .animated-button__text {
+.theme-light .save-section__button-decor,
+.theme-light .animated-button__text {
   color: var(--background-color);
 }
 
 @media (prefers-color-scheme: light) {
-  .animated-button:hover .animated-button__text {
-    color: var(--background-color);
-  }
-}
-
-.theme-light .animated-button:hover .save-section__button-decor {
-  color: var(--background-color);
-}
-
-@media (prefers-color-scheme: light) {
-  .animated-button:hover .save-section__button-decor {
+  .theme-auto .save-section__button-decor,
+  .theme-auto .animated-button__text {
     color: var(--background-color);
   }
 }
